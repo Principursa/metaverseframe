@@ -11,7 +11,6 @@ import {
 } from "frames.js/next/server";
 import Link from "next/link";
 import { DEBUG_HUB_OPTIONS } from "./debug/constants";
-import data from "./propydata.json"
 type State = {
   playerwidth: number;
   playerheight: number;
