@@ -147,7 +147,7 @@ function GameState(state: State) {
 
 
     <p tw="w-full h-full bg-slate-700 justify-center items-center">
-        {gameMap.map((element,index)=> (<tr tw="display-flex flex-col" key={index}>{element.map((val,i) => Tiles(val,i,index,state))}</tr>)) }
+        {gameMap.map((element,index)=> (<tr tw="flex flex-col" key={index}>{element.map((val,i) => Tiles(val,i,index,state))}</tr>)) }
         {state?.active == true ? (<div tw="flex flex-col text-white">Hagia Sophia<img tw="w-50 m-10" src={"https://propy.mypinata.cloud/ipfs/QmcgtYmaabgUKPbBVq8GQtABD4AKWbfZjaF1xW4AGzPXLw"} alt="" /></div>): ("")}
 
             
