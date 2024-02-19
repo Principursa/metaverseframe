@@ -166,7 +166,7 @@ function Tiles(value: number,width: any,height: number,state:State) {
   {Building(width,height)}
   </td>
 }
-function Building(width,height,) {
+function Building(width:any,height:any,) {
   if (width == 6 && height == 6){
     return (
 <div tw="absolute">🏛️</div>
