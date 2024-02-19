@@ -30,7 +30,6 @@ let gameMap  = Array(height).fill(0).map(() => Array(length).fill(0));
 let initPlayerHeight = height/2
 let initPlayerWidth = length/2
 
-gameMap[height/2][length/2] = 1
 
 
 let coords = [[3,7],[10,2],[1,4],[4,10],[5,1]]
