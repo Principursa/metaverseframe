@@ -113,16 +113,16 @@ export default async function Home({
             </div>
 
         </FrameImage>
-        <FrameButton onClick={dispatch}>
+        <FrameButton>
            ⬅️️️ 
         </FrameButton>
-        <FrameButton onClick={dispatch}>
+        <FrameButton>
 ⬆️
         </FrameButton>
-        <FrameButton onClick={dispatch}>
+        <FrameButton>
           ⬇️
         </FrameButton>
-        <FrameButton onClick={dispatch}>
+        <FrameButton>
          ️️➡️
         </FrameButton>
       </FrameContainer>
