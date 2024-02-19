@@ -15,6 +15,7 @@ import data from "./propydata.json"
 type State = {
   playerwidth: number;
   playerheight: number;
+  active: boolean;
 };
 
 interface Action {
@@ -35,11 +36,14 @@ gameMap[height/2][length/2] = 1
 let coords = [[3,7],[10,2],[1,4],[4,10],[5,1]]
 
 
-const initialState = { active: "1", total_button_presses: 0,playerwidth:initPlayerWidth,playerheight:initPlayerHeight};
+const initialState = { active: false, total_button_presses: 0,playerwidth:initPlayerWidth,playerheight:initPlayerHeight};
 
 const reducer: FrameReducer<State> = (state, action) => ({
+
   playerwidth: state.playerwidth + 1,
-  playerheight: state.playerheight + 1
+  playerheight: state.playerheight + 1,
+  active: true
+
 });
 
 // This is a react server component only
@@ -105,16 +109,18 @@ export default async function Home({
       >
         {/* <FrameImage src="https://framesjs.org/og.png" /> */}
         <FrameImage aspectRatio="1.91:1">
+          <div tw="flex flex-row">
             {GameState(state)}
+            </div>
 
         </FrameImage>
-        <FrameButton>
+        <FrameButton onClick={dispatch}>
            ⬅️️️ 
         </FrameButton>
         <FrameButton onClick={dispatch}>
 ⬆️
         </FrameButton>
-        <FrameButton>
+        <FrameButton onClick={dispatch}>
           ⬇️
         </FrameButton>
         <FrameButton onClick={dispatch}>
@@ -124,6 +130,18 @@ export default async function Home({
     </div>
   );
 }
+function moveRight(){
+
+}
+function moveLeft(){
+
+}
+function moveUp(){
+
+}
+function moveDown(){
+
+}
 
 function GameState(state) {
   return(
@@ -131,6 +149,9 @@ function GameState(state) {
 
     <p tw="w-full h-full bg-slate-700 justify-center items-center">
         {gameMap.map((element,index)=> (<tr tw="display-flex flex-col" key={index}>{element.map((val,i) => Tiles(val,i,index,state))}</tr>)) }
+        {state?.active == true ? (<div tw="flex flex-col text-white">Hagia Sophia<img tw="w-50 m-10" src={"https://propy.mypinata.cloud/ipfs/QmcgtYmaabgUKPbBVq8GQtABD4AKWbfZjaF1xW4AGzPXLw"} alt="" /></div>): ("")}
+
+            
 </p>
 
   )
@@ -142,10 +163,15 @@ function Tiles(value: number,width: any,height: number,state) {
     <td id={width} tw="m-.5 relative">🟥<div tw="absolute">🥷</div></td>
     )
   }
-  else return <td id={width} tw="m-.5 relative">⬜{
-    coords.forEach((element,index) => {if (coords[index][0] == height && coords[index][1] == width ){
-      <div tw="absolute">🏛️</div>
+  else return <td id={width} tw="m-.5 relative">⬜
+  {Building(width,height)}
+  </td>
+}
+function Building(width,height,) {
+  if (width == 6 && height == 6){
+    return (
+<div tw="absolute">🏛️</div>
+    )
+  }
 
-    }})
-  }</td>
 }
