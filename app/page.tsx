@@ -142,7 +142,7 @@ function moveDown(){
 
 }
 
-function GameState(state) {
+function GameState(state: State) {
   return(
 
 
@@ -156,7 +156,7 @@ function GameState(state) {
   )
 }
 
-function Tiles(value: number,width: any,height: number,state) {
+function Tiles(value: number,width: any,height: number,state:State) {
   if(width == state.playerwidth && height == state.playerheight){
     return(
     <td id={width} tw="m-.5 relative">🟥<div tw="absolute">🥷</div></td>
